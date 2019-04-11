@@ -25,14 +25,14 @@ double b(double *inputs, int max_content)
 	for (int i = 0; i < max_content; i++) {
 		for (int j = 0; j < max_content; j++) {
 			num_i = inputs[i];
-			if(inputs[i] < 0){
+			if (inputs[i] < 0) {
 				num_i = num_i * -1;
 			}
 			num_j = inputs[j];
-			if(inputs[j] < 0){
+			if (inputs[j] < 0) {
 				num_j = num_j * -1;
 			}
-			if(num_i < num_j){
+			if (num_i < num_j) {
 				tmp = inputs[i];
 				inputs[i] = inputs[j];
 				inputs[j] = tmp;
@@ -61,7 +61,7 @@ int main(void)
 		sscanf(buf, "%le", &input);
 		inputs[i] = input;
 #ifdef DEBUG
-		printf("inputs[%d] = %f\n",i,input);
+		printf("inputs[%d] = %f\n", i, input);
 #endif
 		i++;
 	}

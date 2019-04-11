@@ -1,0 +1,28 @@
+<html>
+	<!--
+	 画像をクリックたびに，イベントハンドラで画像の大きさを半分にする・元に戻す関数を実行するようなプログラム
+	-->
+	<head>
+		<script type = "text/javascript">
+			function imageSize(){
+				var obj = document.images['myImg1'];
+				default_wid = 640;
+				default_hei = 480;
+				half_wid = default_wid / 2;
+				half_hei = default_hei / 2;
+				if(obj.height == default_hei){
+					obj.height = half_hei;
+					obj.width = half_wid;
+				}else{
+					obj.height = default_hei;
+					obj.width = default_wid;
+				}
+			}
+		</script>
+	</head>
+		<h1>課題4</h1>
+		<body>
+			<img src="img1.png" name="myImg1" id="myImg1" onclick="imageSize()">
+		</body>
+</html>
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>課題5</title>
+<script>
+    var pictures = new Array("img1.png", "img2.png", "img3.png");
+    var slide_condition;
+    function slide(){
+        var random = Math.floor(Math.random() * 3);
+        document.images["myImg"].src = pictures[random];
+    }
+    function slide_on(){
+        slide();
+        slide_condition = setInterval('slide()', 5000);
+    }
+    function slide_off(){
+        clearInterval(slide_condition);
+    }
+</script>
+</head>
+<h1>課題5</h1>
+<body>
+  <input type="button" value="スライドショーを開始" onclick="slide_on()">
+  <input type="button" value="スライドショーを終了" onclick="slide_off()">
+  <br><img src="" name="myImg"><br>
+</body>
+</html>

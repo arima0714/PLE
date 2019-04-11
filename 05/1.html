@@ -1,0 +1,27 @@
+<html>
+	<!--
+	開始日と終了日を入力し、経過した週数を計算して、alertボックスに出力するプログラムを書く。
+	経過日数が7日未満であれば、経過日数は0
+	経過日数が7日以上13日以下であれば経過週数は1とする
+	-->
+	<head>
+		<h1>課題2</h1>
+		<script type = "text/javascript">
+			var year = prompt("開始年");
+			var month = prompt("開始月");
+			var day = prompt("開始日");
+			var first = new Date(year, month, day);
+			document.write(first.getFullYear() + "/" + first.getMonth() + "/" + first.getDate() + "\n");
+			year = prompt("終了年");
+			month = prompt("終了月");
+			day = prompt("終了日");
+			var end = new Date(year, month, day);
+			document.write(end.getFullYear() + "/" + end.getMonth() + "/" + end.getDate() + "\n");
+			var diff = end.getTime() - first.getTime();
+			var diff_day = diff/(1000*60*60*24);
+			document.write("経過した日数は" + diff_day + "\n");
+			document.write("経過した週は" + Math.floor(diff_day/7) + "\n");
+		</script>
+	</head>
+</html>
+

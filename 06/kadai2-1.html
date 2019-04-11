@@ -1,0 +1,42 @@
+<html>
+	<!--
+	 3桁の８進数を50個ランダムに生成・表示するスクリプトを作りなさい．
+	 また，3桁とも同じ数になった場合は3桁の数を赤色で表示しなさい．
+	-->
+	<head>
+		<h1>課題3</h1>
+		<script type = "text/javascript">
+			function return_oct(){
+				return Math.floor(Math.random() * 8);
+			}
+			function put_oct(color, num){
+				if(color){
+					document.write("<font color = \"red\">");
+					document.write(num);
+					document.write("</font>")
+				}else{
+					document.write(num);
+				}
+			}
+			document.write("<table>");
+			document.write("<tr><th>8<sup>2</sup>の位</th><th>8<sup>1</sup>の位</th><th>8<sup>0</sup>の位</th></tr>");
+			for(var i = 0;i < 500; i++){
+				var color = 0;
+				var cul1 = return_oct();
+				var cul2 = return_oct();
+				var cul3 = return_oct();
+				color = (cul1 == cul2 && cul2 == cul3);
+				document.write("<tr><td>");
+				put_oct(color, cul1);
+				document.write("</td><td>");
+				put_oct(color, cul2);
+				document.write("</td><td>");
+				put_oct(color, cul3);
+				document.write("</td></tr>");
+
+			}
+			document.write("</table>");
+		</script>
+	</head>
+</html>
+

@@ -13,4 +13,4 @@ gcc:
 dgcc:
 	gcc -Wall -DDEBUG 2.c
 exe:
-	./a.out < input_2.txt
+	./a.out < 2_input.txt

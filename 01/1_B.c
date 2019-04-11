@@ -48,27 +48,29 @@ double xabs(double num)
 	return num;
 }
 
-double get_con(struct node* nodes,int num){
-	struct node* temp;
+double get_con(struct node *nodes, int num)
+{
+	struct node *temp;
 	temp = nodes;
-	for(int j = 0 ; j != num;j++){
+	for (int j = 0; j != num; j++) {
 		temp = temp->next;
 	}
 	return temp->content;
 }
 
-void swap_con(struct node* nodes,int num1, int num2){
-	struct node* temp1;
-	struct node* temp2;
+void swap_con(struct node *nodes, int num1, int num2)
+{
+	struct node *temp1;
+	struct node *temp2;
 	double tmp;
 
 	temp1 = nodes;
 	temp2 = nodes;
-	
-	for(int i = 0; i != num1;i++){
+
+	for (int i = 0; i != num1; i++) {
 		temp1 = temp1->next;
 	}
-	for(int i = 0; i != num2;i++){
+	for (int i = 0; i != num2; i++) {
 		temp2 = temp2->next;
 	}
 	tmp = temp1->content;
@@ -77,21 +79,22 @@ void swap_con(struct node* nodes,int num1, int num2){
 
 }
 
-void sort(struct node* nodes, int max_con){
+void sort(struct node *nodes, int max_con)
+{
 	double num_i;
 	double num_j;
-	for(int j = 0;j < max_con; j++){
-		for(int i = 0;i < max_con;i++){
-			num_i = get_con(nodes,i);
-			if(num_i < 0){
+	for (int j = 0; j < max_con; j++) {
+		for (int i = 0; i < max_con; i++) {
+			num_i = get_con(nodes, i);
+			if (num_i < 0) {
 				num_i = num_i * -1;
 			}
-			num_j = get_con(nodes,j);
-			if(num_j < 0){
+			num_j = get_con(nodes, j);
+			if (num_j < 0) {
 				num_j = num_j * -1;
 			}
-			if(num_i > num_j){
-				swap_con(nodes,i,j);
+			if (num_i > num_j) {
+				swap_con(nodes, i, j);
 			}
 		}
 	}
@@ -112,10 +115,10 @@ double b(struct node *nodes)
 {
 	double answer = 0;
 	sort(nodes, 20);
-	for(int i = 0;i <= 20;i++){
-		answer += get_con(nodes,i);
+	for (int i = 0; i <= 20; i++) {
+		answer += get_con(nodes, i);
 #ifdef DEBUG
-		printf("num[%d] = %f\n",i,get_con(nodes,i));
+		printf("num[%d] = %f\n", i, get_con(nodes, i));
 #endif
 	}
 	return answer;

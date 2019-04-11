@@ -1,0 +1,35 @@
+<html>
+	<!--
+	文字列をキーワードを入力する
+	文字列にキーワードが何個含まれるかを表示
+	文字列からキーワードを除いた新たな文字列を表示
+	-->
+	<head>
+		<h1>課題(2)</h1>
+		<script type = "text/javascript">
+			var strings = prompt("文字列を入力してください");
+			var keyword = prompt("キーワードを入力してください");
+			var first;
+			var end  ;
+			var index;
+			var happend = 0;
+
+			while(true){
+			index = strings.indexOf(keyword);
+
+				if(index == -1){
+					break;
+				}
+
+			happend += 1;
+			first = strings.substring(0, index);
+			end   = strings.substring(index + keyword.length);
+			strings = first + end;
+			}
+			document.write("キーワードの個数 " + happend + "\n");
+			document.write("新たな文字列 " + strings);
+
+		</script>
+	</head>
+</html>
+

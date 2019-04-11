@@ -1,0 +1,27 @@
+<html>
+	<!--
+	 n, mのべき乗とその和を求め，表を作成するプログラムを書きなさい．
+	 なお，n,mはユーザから入力されるものとし，べき数は0～5とする．
+	-->
+	<head>
+		<h1>課題3</h1>
+		<script type = "text/javascript">
+			var n = prompt("n?");
+			var m = prompt("m?");
+
+			document.write("n = " + n + " m = " + m + "\n");
+			document.write("m ** n = " + m ** n + "\n");
+			document.write("<table>");
+document.write("<tr><th>べき数</th><th>" + n + "</th><th>" + m + "</th><th>sum</th></tr>");
+			for(var i = 0;i < 6; i++){
+				var cul1 = i;
+				var cul2 = n ** i;
+				var cul3 = m ** i;
+				var cul4 = parseInt(cul2) + parseInt(cul3);
+				document.write("<tr><td>" + cul1 + "</td><td>" + cul2 + "</td><td>" + cul3 + "</td><td>" + cul4 + "</td></tr>");
+			}
+			document.write("</table>");
+		</script>
+	</head>
+</html>
+
