@@ -64,9 +64,9 @@
     }
     function gameOver() {
       clearInterval(gaming);
+      document.forms.start_form.start_button.value = "START";
+      document.forms.point_form.point_text.value = "0";
       window.alert('最大数をクリックした回数： ' + corrected + 'ポイント： ' + point);
-      document.forms.score.point.value = 0;
-      document.forms.left.cha.value = "START";
     }
   </script>
 </head>
@@ -87,7 +87,7 @@
     ここに進捗バーが表示される<br>
   </form>
   <form name="point_form">
-    取得ポイント<input type="text" name="point_text"><br>
+    取得ポイント<input type="text" name="point_text" size="4"><br>
   </form>
 </body>
 
