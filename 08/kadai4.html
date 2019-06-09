@@ -24,6 +24,7 @@
     function init() {
       setRandom();
       charenge = 20;
+      corrected = 0;
       document.forms.start_form.start_button.value = charenge;
       point = 0;
       gaming = setInterval('perOneSec()', 1000);
@@ -57,6 +58,7 @@
       if (Math.max.apply(null, numbers) == selectedNum) {
         point = parseInt(point) + parseInt(selectedNum);
         corrected = corrected + 1;
+        setProgressBar(corrected/20 * 100);
       } else {
         point = parseInt(point) - parseInt(selectedNum);
       }
@@ -66,7 +68,15 @@
       clearInterval(gaming);
       document.forms.start_form.start_button.value = "START";
       document.forms.point_form.point_text.value = "0";
+      setProgressBar(0);
+      for (var i = 0; i < 5; i++) {
+        document.g_switch.elements[i].disabled = false;
+        document.g_switch.elements[i].value = "SW" + i;
+      }
       window.alert('最大数をクリックした回数： ' + corrected + 'ポイント： ' + point);
+    }
+    function setProgressBar(value){
+      document.getElementById("progress00").value = value;
     }
   </script>
 </head>
@@ -77,14 +87,13 @@
     <input type="button" name="start_button" value="START" onclick="init()"><br>
   </form>
   <form name="g_switch">
-    <input type="button" name="gs_1" value="SW1" style="width:50px; height: 50px; font-size:20px;" onclick="judge(this)">
-    <input type="button" name="gs_2" value="SW2" style="width:50px; height: 50px; font-size:20px;" onclick="judge(this)"> 
-    <input type="button" name="gs_3" value="SW3" style="width:50px; height: 50px; font-size:20px;" onclick="judge(this)"> 
-    <input type="button" name="gs_4" value="SW4" style="width:50px; height: 50px; font-size:20px;" onclick="judge(this)"> 
-    <input type="button" name="gs_5" value="SW5" style="width:50px; height: 50px; font-size:20px;" onclick="judge(this)"> 
+    <input type="button" name="gs_1" value="SW1" style="width:60px; height: 50px; font-size:20px;" onclick="judge(this)">
+    <input type="button" name="gs_2" value="SW2" style="width:60px; height: 50px; font-size:20px;" onclick="judge(this)"> 
+    <input type="button" name="gs_3" value="SW3" style="width:60px; height: 50px; font-size:20px;" onclick="judge(this)"> 
+    <input type="button" name="gs_4" value="SW4" style="width:60px; height: 50px; font-size:20px;" onclick="judge(this)"> 
+    <input type="button" name="gs_5" value="SW5" style="width:60px; height: 50px; font-size:20px;" onclick="judge(this)"> 
   </form>
   <form name="progress_form">
-    ここに進捗バーが表示される<br>
     <progress id="progress00" value="0" max="100"></progress><br>
   </form>
   <form name="point_form">
