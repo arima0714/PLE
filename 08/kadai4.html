@@ -60,7 +60,7 @@
       } else {
         point = parseInt(point) - parseInt(selectedNum);
       }
-      document.forms.score.point.value = point;
+      document.forms.point_form.point_text.value = point;
     }
     function gameOver() {
       clearInterval(gaming);
@@ -77,9 +77,13 @@
     <input type="button" name="start_button" value="START" onclick="init()"><br>
   </form>
   <form name="g_switch">
-    <input type="button" name="gs_1" value="SW1" style="widht:50px; height: 50px; font-size:20px;">
-    <input type="button" name="gs_2" value="SW2" style="widht:50px; height: 50px; font-size:20px;"> <input type="button" name="gs_3" value="SW3" style="widht:50px; height: 50px; font-size:20px;"> <input type="button" name="gs_4" value="SW4" style="widht:50px; height: 50px; font-size:20px;"> <input type="button" name="gs_5" value="SW5" style="widht:50px; height: 50px; font-size:20px;"> </form>
-      <form name="progress_form">
+    <input type="button" name="gs_1" value="SW1" style="width:50px; height: 50px; font-size:20px;" onclick="judge(this)">
+    <input type="button" name="gs_2" value="SW2" style="width:50px; height: 50px; font-size:20px;" onclick="judge(this)"> 
+    <input type="button" name="gs_3" value="SW3" style="width:50px; height: 50px; font-size:20px;" onclick="judge(this)"> 
+    <input type="button" name="gs_4" value="SW4" style="width:50px; height: 50px; font-size:20px;" onclick="judge(this)"> 
+    <input type="button" name="gs_5" value="SW5" style="width:50px; height: 50px; font-size:20px;" onclick="judge(this)"> 
+  </form>
+  <form name="progress_form">
     ここに進捗バーが表示される<br>
   </form>
   <form name="point_form">
