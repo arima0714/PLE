@@ -6,21 +6,23 @@
 	<head>
 		<h1>課題3</h1>
 		<script type = "text/javascript">
+			//ランダムに0から7の値を返す関数
 			function return_oct(){
 				return Math.floor(Math.random() * 8);
 			}
+			//第一引数に真偽値、第二引数に数値をうけ、第一引数が真の場合は赤でそうでない場合は黒で第二引数でdocument.writeする関数
 			function put_oct(color, num){
 				if(color){
 					document.write("<font color = \"red\">");
 					document.write(num);
-					document.write("</font>")
+					document.write("</font>");
 				}else{
 					document.write(num);
 				}
 			}
-			document.write("<table>");
+			document.write("<table border>");
 			document.write("<tr><th>8<sup>2</sup>の位</th><th>8<sup>1</sup>の位</th><th>8<sup>0</sup>の位</th></tr>");
-			for(var i = 0;i < 500; i++){
+			for(var i = 0;i < 50; i++){
 				var color = 0;
 				var cul1 = return_oct();
 				var cul2 = return_oct();

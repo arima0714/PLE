@@ -6,17 +6,18 @@
 	<head>
 		<h1>課題3</h1>
 		<script type = "text/javascript">
+		//n,mの入力
 			var n = prompt("n?");
 			var m = prompt("m?");
-
-			document.write("n = " + n + " m = " + m + "\n");
-			document.write("m ** n = " + m ** n + "\n");
-			document.write("<table>");
+			//テーブルの作成
+			document.write("<table border>");
 document.write("<tr><th>べき数</th><th>" + n + "</th><th>" + m + "</th><th>sum</th></tr>");
 			for(var i = 0;i < 6; i++){
+				//そのまま計算して加算すると文字列の加算となってしまうのでそれぞれのセルの値を変数代入をしている
 				var cul1 = i;
 				var cul2 = n ** i;
 				var cul3 = m ** i;
+				//文字列ではなく数値として計算させている
 				var cul4 = parseInt(cul2) + parseInt(cul3);
 				document.write("<tr><td>" + cul1 + "</td><td>" + cul2 + "</td><td>" + cul3 + "</td><td>" + cul4 + "</td></tr>");
 			}

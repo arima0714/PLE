@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>課題2-2</title>
+<script>
+    //文字色を配列に保存
+    var colors = ['red', 'blue','yellow'];
+    //idが「txt」に当てはまるものの文字色をランダムにcolors配列に保存されている色に変更する関数
+    function changeColor(){
+        var obj = document.getElementById("txt");
+        obj.style.color = colors[Math.floor(Math.random() * 3)];
+    }
+    //五秒ごとにchangeColor()を実行
+    setInterval('changeColor()',5000);
+</script>
+</head>
+<body>
+    <div id="txt">
+        This is text.
+    </div>
+</body>
+</html>

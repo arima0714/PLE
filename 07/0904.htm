@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <script language="JavaScript">
+            function mdown(){
+                document.forms[0].elements[0].value = "thankyou";
+            }
+            function mup(){
+                document.forms[0].elements[0].value = "press again";
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <input type = "button" onmousedown()="mdown()" onmouseup="mup()" value="press here">
+        </form>
+    </body>
+</html>

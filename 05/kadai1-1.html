@@ -5,21 +5,23 @@
 	経過日数が7日以上13日以下であれば経過週数は1とする
 	-->
 	<head>
-		<h1>課題2</h1>
+		<h1>課題1</h1>
 		<script type = "text/javascript">
+			//開始年をプロンプトにて入力
 			var year = prompt("開始年");
 			var month = prompt("開始月");
 			var day = prompt("開始日");
 			var first = new Date(year, month, day);
-			document.write(first.getFullYear() + "/" + first.getMonth() + "/" + first.getDate() + "\n");
+			//終了年をプロンプトにて入力
 			year = prompt("終了年");
 			month = prompt("終了月");
 			day = prompt("終了日");
 			var end = new Date(year, month, day);
-			document.write(end.getFullYear() + "/" + end.getMonth() + "/" + end.getDate() + "\n");
+			//日単位での差分の計算
 			var diff = end.getTime() - first.getTime();
+			//週単位への変換
 			var diff_day = diff/(1000*60*60*24);
-			document.write("経過した日数は" + diff_day + "\n");
+			//出力
 			document.write("経過した週は" + Math.floor(diff_day/7) + "\n");
 		</script>
 	</head>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!--
+Webページに初めて訪れた際には，氏名と趣味をユーザから得てクッキーに記録する
+2回目以降の訪問時には，氏名・趣味・訪問回数を表示するとともに，趣味を変更するかどうかを聞く
+変更があればユーザから新たな趣味を得てクッキーの保存情報を変更するスクリプトを書きなさい．
+	-->
+
+<head>
+  <meta charset="utf-8">
+  <title>課題6</title>
+  <script>
+
+    //WEB資料に記載されていたcookieに値を保存するための関数
+    function setinCookie(attr, valu) {
+      var cData = attr + "=" + escape(valu) + ";";// ←escapeはASCIIコードへエンコード
+      var presentDay = new Date();
+      var dd = presentDay.getDate();
+      dd = dd + 7;
+      presentDay.setDate(dd);
+      var expTime = presentDay.toGMTString();
+      document.cookie = cData + "expires=" + expTime;
+    }
+
+    //入力された属性のcookie情報を削除する関数
+    function delCookie(attr){
+      var dt = new Date('1999-12-31T23:59:59Z');
+      document.cookie = attr + "=; expires=" +dt.toUTCString();
+      alert(document.cookie);
+    }
+
+    //cookei情報を連想配列にして返す関数
+    function getCookieArray(){
+      var arr = new Array();
+      //cookieに何らかの情報がある場合
+      if(document.cookie != ''){
+        //一時変数tmpにcookie情報を「;」で区切った配列の情報として格納
+        var tmp = document.cookie.split('; ');
+        //for文でtmpに保存された配列の長さ分だけ、tmpの情報一つ一つを「=」で区切ってdataに格納し、arrに格納する
+        for(var i = 0; i < tmp.length; i++){
+          var data = tmp[i].split('=');
+          arr[data[0]] = unescape(data[1]);
+        }
+      }
+      return arr;
+    }
+
+    // var attr = prompt("attr", "");
+    // var valu = prompt("valu", "");
+    // setinCookie(attr, valu);
+
+    // var attr = prompt("attr", "");
+    // delCookie(attr);
+
+    //arrにcookie情報を連想配列化したものを格納
+    var arr = getCookieArray();
+
+
+
+  </script>
+</head>
+
+<body>
+  <h1>課題6</h1>
+  <script type="text/javascript">
+
+    //cookieの属性visitに訪問回数を格納する
+    if(arr["visit"]){
+      setinCookie("visit", parseInt(arr["visit"]) + 1);
+      document.write("訪問回数" + arr["visit"] + "回目<br>")
+    }else{
+      setinCookie("visit", "1");
+    }
+
+    //cookieの属性nameに何らかの情報がある場合はそれを出力。そうでない場合は入力させる。
+    if(arr["name"]){
+      document.write("氏名" + arr["name"] + "<br>");
+    }else{
+      var name_v = prompt("名前を入力してください", "");
+      setinCookie("name", name_v);
+    }
+
+    //cookieの属性hobbyに何らかの情報がある場合は、趣味の更新の有無を聞き、ある場合は入力させ、その後出力。そうでない場合は入力させる。
+    if(arr["hobby"]){
+      var result = window.confirm("趣味を更新しますか？");
+      if(result){
+        new_hobby_v = prompt("新しい趣味を入力して下さい", "");
+        setinCookie("hobby", new_hobby_v);
+      }
+      document.write("趣味" + arr["hobby"] + "<br>");
+    }else{
+      var hobby_v = prompt("趣味を入力してください", "");
+      setinCookie("hobby", hobby_v);
+    }
+
+  </script>
+</body>
+
+</html>

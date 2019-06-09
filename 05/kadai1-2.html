@@ -7,6 +7,7 @@
 	<head>
 		<h1>課題(2)</h1>
 		<script type = "text/javascript">
+		//文字列およびキーワードの入力
 			var strings = prompt("文字列を入力してください");
 			var keyword = prompt("キーワードを入力してください");
 			var first;
@@ -14,19 +15,22 @@
 			var index;
 			var happend = 0;
 
+			//indexにはキーワードの始まる最初のインデックス値が代入され、文字列にキーワードが無くなるまでループする
 			while(true){
 			index = strings.indexOf(keyword);
 
 				if(index == -1){
 					break;
 				}
-
+			//キーワードの出現回数を1増加
 			happend += 1;
+			//キーワードを前から順に探索しているのでキーワードの出現前後を分割していたものを結合
 			first = strings.substring(0, index);
 			end   = strings.substring(index + keyword.length);
 			strings = first + end;
 			}
-			document.write("キーワードの個数 " + happend + "\n");
+			//出力
+			document.write("キーワードの個数=" + happend + "\n");
 			document.write("新たな文字列 " + strings);
 
 		</script>

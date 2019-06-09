@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!--
+    
+-->
+
+<head>
+  <meta charset="utf-8">
+  <title>課題4</title>
+  <script>
+    // 残り秒数
+    var leftSec;
+    // スイッチ1～5
+
+    // 正解クリック数
+    var corrected = 0;
+    // 残りチャレンジ回数
+    var charenge;
+    // ポイント
+    var point;
+    // ゲーム中にSetIntervalの返り値を保存する変数
+    var gaming;
+    // 初期化関数
+    function init() {
+      setRandom();
+      charenge = 20;
+      document.forms.start_form.start_button.value = charenge;
+      point = 0;
+      gaming = setInterval('perOneSec()', 1000);
+    }
+    // ボタンに乱数を設定する関数
+    function setRandom() {
+      for (var i = 0; i < 5; i++) {
+        document.g_switch.elements[i].disabled = false;
+        document.g_switch.elements[i].value = Math.floor(Math.random() * 101);
+      }
+    }
+    // 1秒ごとに実行される関数
+    function perOneSec() {
+      // チャレンジ回数を1つ減少させる
+      charenge = charenge - 1;
+      document.forms.start_form.start_button.value = charenge;
+      // ５つのスイッチの値をランダムに変える
+      setRandom();
+      // チャレンジ回数が0になったら，最大数をクリックした回数と取得ポイントを表示する
+      if (charenge <= 0) {
+        gameOver();
+      }
+    }
+    function judge(btn) {
+      var selectedNum = btn.value;
+      btn.disabled = true;
+      var numbers = [];
+      for (var i = 0; i < 5; i++) {
+        numbers.push(document.g_switch.elements[i].value);
+      }
+      if (Math.max.apply(null, numbers) == selectedNum) {
+        point = parseInt(point) + parseInt(selectedNum);
+        corrected = corrected + 1;
+      } else {
+        point = parseInt(point) - parseInt(selectedNum);
+      }
+      document.forms.score.point.value = point;
+    }
+    function gameOver() {
+      clearInterval(gaming);
+      window.alert('最大数をクリックした回数： ' + corrected + 'ポイント： ' + point);
+      document.forms.score.point.value = 0;
+      document.forms.left.cha.value = "START";
+    }
+  </script>
+</head>
+
+<body>
+  <h1>課題4</h1>
+  <form name="start_form">
+    <input type="button" name="start_button" value="START" onclick="init()"><br>
+  </form>
+  <form name="g_switch">
+    <input type="button" name="gs_1" value="SW1" style="widht:50px; height: 50px; font-size:20px;">
+    <input type="button" name="gs_2" value="SW2" style="widht:50px; height: 50px; font-size:20px;"> <input type="button" name="gs_3" value="SW3" style="widht:50px; height: 50px; font-size:20px;"> <input type="button" name="gs_4" value="SW4" style="widht:50px; height: 50px; font-size:20px;"> <input type="button" name="gs_5" value="SW5" style="widht:50px; height: 50px; font-size:20px;"> </form>
+      <form name="progress_form">
+    ここに進捗バーが表示される<br>
+  </form>
+  <form name="point_form">
+    取得ポイント<input type="text" name="point_text"><br>
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<html>
+
+<head>
+<title>練習問題5</title>
+<script type="text/javascript">
+function set_name(){
+   var presentDay, dd, extime;
+   var u_name = prompt("お名前を入力してください","");
+   if (u_name == ""){
+      set_name();
+   }
+   presentDay = new Date( );
+   dd = presentDay.getDate( );
+   dd=dd+7;
+   presentDay.setDate(dd);
+   extime = presentDay.toGMTString();
+   document.cookie = u_name + ";expires=" + extime;
+}
+</script>
+</head>
+
+<body>
+<h1>Welcome to this page!!</h1>
+<script type="text/javascript">
+var userName = document.cookie;
+if (userName == "")
+   set_name( );
+document.write(document.cookie + "さん，閲覧有り難うございます．");
+</script>
+</body>
+
+</html>

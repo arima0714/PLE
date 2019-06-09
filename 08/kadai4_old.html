@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!--
+	-->
+
+<head>
+  <meta charset="utf-8">
+  <title>課題4</title>
+  <script>
+
+    // 残り秒数
+    var leftSec;
+    // スイッチ1～5
+
+    // 正解クリック数
+    var corrected = 0;
+    // 残りチャレンジ回数
+    var charenge;
+    // ポイント
+    var point;
+    // ゲーム中にSetIntervalの返り値を保存する変数
+    var gaming;
+    // 初期化関数
+    function init(){
+      setRandom();
+      charenge = 20;
+      document.forms.left.cha.value = charenge;
+      point = 0;
+      gaming = setInterval('perOneSec()',1000);
+    }
+    // ボタンに乱数を設定する関数
+    function setRandom(){
+      for(var i = 0 ; i < 5 ; i++){
+        document.g_switch.elements[i].disabled = false;
+        document.g_switch.elements[i].value = Math.floor(Math.random() * 101);
+      }
+    }
+    // 1秒ごとに実行される関数
+    function perOneSec(){
+      // チャレンジ回数を1つ減少させる
+      charenge = charenge - 1;
+      document.forms.left.cha.value = charenge;
+      // ５つのスイッチの値をランダムに変える
+      setRandom();
+      // チャレンジ回数が0になったら，最大数をクリックした回数と取得ポイントを表示する
+      if(charenge <= 0){
+        gameOver();
+      }
+    }
+    function judge(btn){
+      var selectedNum = btn.value;
+      btn.disabled=true;
+      var numbers = [];
+      for(var i = 0; i < 5; i++){
+        numbers.push(document.g_switch.elements[i].value);
+      }
+      if(Math.max.apply(null,numbers)==selectedNum){
+        point = parseInt(point) + parseInt(selectedNum);
+        corrected = corrected + 1;
+      }else{
+        point = parseInt(point) - parseInt(selectedNum);
+      }
+      document.forms.score.point.value = point;
+    }
+    // ゲームオーバー時に実行する関数
+    function gameOver(){
+      clearInterval(gaming);
+      window.alert('最大数をクリックした回数： ' + corrected + 'ポイント： ' + point);
+      document.forms.score.point.value = 0;
+     <!-- スタートボタンの配置
+  5つのスイッチ(=ボタン)の設置 -->
+    <form name="start" >
+      <input type="button" name="star" value="START" onclick="init()"><br>
+    </form>
+    <input type = "button" name="start" value="START" onclick="init()"><br>
+    <form name="g_switch">
+    <input type="button" name="gs_1" value="SW1" style="width:50px; height: 50px; font-size:20px;" onclick="judge(this)">
+    <form name="start" >
+      <input type="button" name="star" value="START" onclick="init()"
+    </form>
+    <input type="button" name="gs_5" value="SW5" style="width:50px; height: 50px; font-size:20px;" onclick="judge(this)">
+    </form>
+    <form name="left">dugjudge"=onon onclick="=judge"dugjudge(this)"
+      残りチャレンジ数<input name="cha">dugjudge"=onon onclick="=judge"dugjudge(this)"
+    </form>dugjudge"=onon onclick="=judge"dugjudge(this)"
+    <form name="score">dugjudge"=onon onclick="=judge"dugjudge(this)"
+      取得ポイント<input type="text" name="point" value="">dugjudge"=onon onclick="=judge"dugjudge(this)"
+    </form>
+</body>
+leftidnamecha
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!--
+      「The next photo」ボタンをクリックすると次の写真までスクロール（下へ500px移動させる）
+      「The previous photo」ボタンをクリックすると前の写真までスクロール（上へ500px移動させる）
+      また，「Top」ボタンをクリックするとページの最上部にスクロールするようにスクリプトを書きなさい．
+      ただし，写真の上下スクロールは1pxずつ移動するようにしなさい．
+        -->
+
+<head>
+  <title>ブラウザ画面のスクロール</title>
+  <script type="text/javascript">
+  //引数に渡されたidの位置-500までスクロールさせる関数
+    function pre(id){
+      objRect = document.getElementById(id).getBoundingClientRect();
+      window.scrollBy (0,parseInt(objRect.top)-500);
+    }
+  //引数に渡されたidの位置+500までスクロールさせる関数
+    function nex(id){
+      objRect = document.getElementById(id).getBoundingClientRect();
+      window.scrollBy (0,parseInt(objRect.top)+500);
+    }
+  </script>
+</head>
+
+<body>
+  <h1>クレタ島の風景</h1>
+  写真ごとに上下スクロール<br>
+  <img id="im0" src="imgGreece1.jpg"><br>
+  <button onclick="nex('im0')">The next photo</button><br>
+  <img id="im1" src="imgGreece2.jpg"><br>
+  <button onclick="window.scrollBy (0,-500)">The previous photo</button>
+  <button onclick="nex('im1')">The next photo</button><br>
+  <img id="im2" src="imgGreece3.jpg"><br>
+  <button onclick="window.scrollBy (0,-500)">The previous photo</button><br>
+  <button onclick="window.scrollTo(0,0)">Top</button><br>
+</body>
+
+
+</html>

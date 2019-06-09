@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>課題2-3</title>
+    <script>
+    //idが「myImg_0」に該当する画像の位置を右に10pxずつ移動させる関数
+    function move_right(){
+        //変数objにidが「myImg_0」に該当するものを代入
+        var obj = document.getElementById("myImg_0");
+        if(parseInt(obj.style.left) <= 400){
+            //objの位置を右に10px移動
+            obj.style.left = (parseInt(obj.style.left) + 10) + "px";
+        }
+    }
+    //move_right()を0.1秒ごとに実行
+    setInterval('move_right()',100);
+    </script>
+</head>
+
+<body>
+    <img id="myImg_0" src="img1-small.png" name="myImg_1" style="position: absolute;left:0px;top:50px">
+</body>
+
+</html>

@@ -4,16 +4,21 @@
 <meta charset="utf-8">
 <title>課題5</title>
 <script>
+    //使用するファイル名を配列に保存
     var pictures = new Array("img1.png", "img2.png", "img3.png");
+    //スライドショーの有効無効を保存
     var slide_condition;
+    //表示する画像を実際にランダムに変更する関数
     function slide(){
         var random = Math.floor(Math.random() * 3);
         document.images["myImg"].src = pictures[random];
     }
+    //クリックされた瞬間に画像を表示し、5秒ごとに画像を変更する関数
     function slide_on(){
         slide();
         slide_condition = setInterval('slide()', 5000);
     }
+    //スライドショーの動作を停止する関数
     function slide_off(){
         clearInterval(slide_condition);
     }

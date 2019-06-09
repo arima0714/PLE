@@ -6,10 +6,12 @@
 		<script type = "text/javascript">
 			function imageSize(){
 				var obj = document.images['myImg1'];
+				//標準的の大きさ、半分の時の大きさを定義
 				default_wid = 640;
 				default_hei = 480;
 				half_wid = default_wid / 2;
 				half_hei = default_hei / 2;
+				//表示されている画像の大きさが標準の場合は半分に、違う場合は標準にしている
 				if(obj.height == default_hei){
 					obj.height = half_hei;
 					obj.width = half_wid;
@@ -22,6 +24,7 @@
 	</head>
 		<h1>課題4</h1>
 		<body>
+			<!-- クリック時にimageSize()を動かしている -->
 			<img src="img1.png" name="myImg1" id="myImg1" onclick="imageSize()">
 		</body>
 </html>

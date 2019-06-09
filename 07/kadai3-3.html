@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            var imgs = ["./imgGreece1.jpg","./imgGreece2.jpg","./imgGreece3.jpg"]
+            function ChangeImg(){
+                var selected = document.bkmkmenu.bkmks.selectedIndex;
+                document["img"].src = imgs[selected];
+            }
+            setInterval('ChangeImg()',100);
+        </script>
+    </head>
+    <body>
+        <form name = "bkmkmenu">
+            <select name = "bkmks" size="3">
+                <option value = "1" selected>画像1</option>
+                <option value = "2">画像2</option>
+                <option value = "3">画像3</option>
+            </select>
+        </form>
+        <img name="img" src="">
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!-- 
+    ラジオボタンで文字色を５色（赤，青，黄，黒，緑）を準備する
+    その一つを選択し，「文字色変更」ボタンを押すと，対象となる文字列の色を変えるスクリプト 
+-->
+<html>
+    <head>
+        <script type="text/javascript">
+            function changeColor(){
+                var elements = document.getElementsByName("color");
+                for(var a = "", i = elements.length; i--;){
+                    if(elements[i].checked){
+                        var a = elements[i].value;
+                        break;
+                    }
+                }
+                document.getElementById("str").style.color = a;   
+            }
+        </script>
+    </head>
+    <body>
+        <form name = "radios">
+            <input type = "radio" name="color" value="red">赤<br>
+            <input type = "radio" name="color" value="blue">青<br>
+            <input type = "radio" name="color" value="yellow">黄<br>
+            <input type = "radio" name="color" value="black">黒<br>
+            <input type = "radio" name="color" value="green">緑<br>
+            <input type = "button" value = "change strings color" onclick='changeColor()'>
+        </form>
+        <div id="str">■ ■ ■ ■ ■</div>
+    </body>
+</html>

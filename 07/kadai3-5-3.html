@@ -1,0 +1,31 @@
+<!-- 背景色自動変更（処理：ウィンドウの背景色を３秒ごとに自動で変更する） -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>課題5-3-3</title>
+<script>
+    //文字色を配列に保存
+    var colors = ['red', 'blue','yellow','black','green'];
+    var color;
+    var color_next;
+    //idが「txt」に当てはまるものの文字色をランダムにcolors配列に保存されている色に変更する関数
+    function changeColor(){
+        color_next = colors[Math.floor(Math.random() * colors.length)];
+        if(color_next != color){
+            color = color_next;
+        }
+        document.getElementById('all').style.backgroundColor = color;
+    }
+    //五秒ごとにchangeColor()を実行
+    setInterval('changeColor()',3000);
+</script>
+</head>
+<body id='all'>
+    <h1>kadai3-5-3</h1>
+    <div id="txt">
+        This is text.
+    </div>
+  <button onclick="window.close()">閉じる</button>
+</body>
+</html>

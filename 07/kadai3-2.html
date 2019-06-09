@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function scrclr(){
+                for(i = 0;i < document.tstform.length; i++){
+                    if(document.tstform.elements[i].type != "button"){
+                        document.tstform.elements[i].value = "";
+                    }
+                }
+                document.tstform.english.focus();
+            }
+            function retResult(point){
+                var intPoint = (parseInt(point));
+                if(point < 60){
+                    return "不可（59点以下）";
+                }else if(point < 70){
+                    return "可（60-69点）";
+                }else if(point < 80){
+                    return "良（70-79点りょう";
+                }else if(point < 90){
+                    return "優（80-89点）";
+                }else{
+                    return "秀（90点以上）";
+                }
+            }
+            function cave(){
+                document.tstform.tresult.value = (parseInt(document.tstform.english.value) + parseInt(document.tstform.mathmatics.value))/2;
+                document.tstform.eng_result.value = retResult(document.tstform.english.value);
+                document.tstform.math_result.value = retResult(document.tstform.mathmatics.value);
+                if(document.tstform.tresult.value < 60){
+                    document.tstform.tcmnt.value = "頑張らないと単位が取れないですよ";
+                }else if(document.tstform.tresult.value < 80){
+                    document.tstform.tcmnt.value = "もう少し頑張りましょう";
+                }else{
+                    document.tstform.tcmnt.value = "よくできました";
+                }
+            }
+            </script>
+    </head>
+    <body onload="scrclr()">
+        <form name="tstform">
+            英語の点数：<input type="text" name="english" size=3>点
+            数学の点数：<input type="text" name="mathmatics" size=3>点
+        <input type="button" onclick="cave()" value="成績判定">
+        <input type="button" onclick="scrclr()" value="キャンセル">
+        <p>
+            あなたの平均点は、<input type="text" name = "tresult" size=3>です
+            <br>
+            あなたの英語の成績は、<input type="text" name="eng_result" size=12> です
+            <br>
+            あなたの数学の成績は、<input type="text" name="math_result" size=12> です
+        </p>
+        <br>
+        コメント：<input type="text" name = "tcmnt" size=60>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!--
+表形式で５つのURLが指すページ名（自由に選んで良い）とそれぞれのページを開く「Open」ボタン・閉じる「Close」ボタンを配置しする
+また、「Open」ボタンを押すと対応するWebページのための新しいウィンドを開く
+さらに、「Close」ボタンを押すと開いたウィンドウを閉じるプログラムを作りなさい．
+注意：
+  5つのウィンドウを指す配列変数を宣言する
+  そして，引数としてURLと表の何番目かを表すnを受け取り
+  横400px，縦600pxの大きさを持ち，URLを表示するアドレス欄とスクロールバーを含むウィンドウを生成する関数createNewWindow ("URL", n)を作ること
+  最後に、引数として表のURLの何番目(n)かを受け取り，対応するウィンドウを閉じる関数closeWindow (n)を作ること．
+	-->
+
+<head>
+  <meta charset="utf-8">
+  <title>課題</title>
+  <script>
+    var windows = ['0','1','2','3','4'];
+    //縦横それぞれ400px,600px、アドレス欄の表示、スクロールバーの表示された新しいウィンドウを作る関数。さらにwindows変数に開いた新しいウィンドウを保存している
+    function createNewWindow(URL, n){
+      windows[n] = window.open(URL,"新ウィンドウ", "width=400, height=600, location=1, scrollbars=1");
+    }
+    //指定されたインデックス番号のウィンドウを消す関数
+    function closeWindow(n){
+      windows[n].close();
+    }
+  </script>
+</head>
+
+<body>
+  <h1>課題</h1>
+  <div id="txt">this is text</div>
+  <!-- テーブルの作成。引数に変数windows配列を処理するための1～4までの値を入れている -->
+  <table>
+    <tr>
+      <td>1.1 JavaScriptとHTML</td>
+      <td><button onclick="createNewWindow('https://www.ied.inf.uec.ac.jp/text/laboratory/javascript/100.html', 0)">OPEN</button></td>
+      <td><button onclick="closeWindow(0)">CLOSE</button></td>
+    </tr>
+    <tr>
+      <td>1.2 JavaScript の書式</td>
+      <td><button onclick="createNewWindow('https://www.ied.inf.uec.ac.jp/text/laboratory/javascript/200.html', 1)">OPEN</button></td>
+      <td><button onclick="closeWindow(1)">CLOSE</button></td>
+    </tr>
+    <tr>
+      <td>1.3 データ型・変数・演算</td>
+      <td><button onclick="createNewWindow('https://www.ied.inf.uec.ac.jp/text/laboratory/javascript/300.html', 2)">OPEN</button></td>
+      <td><button onclick="closeWindow(2)">CLOSE</button></td>
+    </tr>
+    <tr>
+      <td>1.4 関数と制御構造</td>
+      <td><button onclick="createNewWindow('https://www.ied.inf.uec.ac.jp/text/laboratory/javascript/400.html', 3)">OPEN</button></td>
+      <td><button onclick="closeWindow(3)">CLOSE</button></td>
+    </tr>
+    <tr>
+      <td>1.5 オブジェクトの表現・操作</td>
+      <td><button onclick="createNewWindow('https://www.ied.inf.uec.ac.jp/text/laboratory/javascript/500.html', 4)">OPEN</button></td>
+      <td><button onclick="closeWindow(4)">CLOSE</button></td>
+    </tr>
+  </table>
+</body>
+
+</html>

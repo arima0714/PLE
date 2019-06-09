@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!--
+
+ホームとなるページ内に，以下の３つの項目をselectオブジェクトとして用意する．
+それぞれの項目を選択すると新しいページを開き，項目ごとに割り当てられた処理を行う．
+また，新しいページで処理を実行後は，そのページ内にページを閉じるボタンを用意し，閉じることができるようにすること．
+なお，余力がある場合は，4つめの項目として自作したスクリプトを実行できるようにしなさい．
+
+（１）ブックマーク集（処理：５つのURLを登録しておき，そのうち一つを選択するとそのホームページを表示する．）
+（２）2019年の残り時間（処理：2019年として，あと何日，何時間，何秒残っているかを表示）
+（３）背景色自動変更（処理：ウィンドウの背景色を３秒ごとに自動で変更する）
+（４）自作（処理：自作した処理を行うスクリプト）
+
+-->
+<head>
+  <meta charset="utf-8">
+  <title>課題</title>
+  <script>
+    var windows = ['0','1','2','3'];
+    function openNewWindow(obj){
+        var idx = obj.selectedIndex;
+        var value = obj.options[idx].value;
+        var text = obj.options[idx].text;
+        if(idx != 0){
+          window.open(value,"", "width=400, height=600, location=1, scrollbars=1");
+        }
+    }
+  </script>
+</head>
+
+<body>
+  <h1>課題</h1>
+  <div id="txt">this is text</div>
+  <!-- テーブルの作成。引数に変数windows配列を処理するための1～4までの値を入れている -->
+  <select name="name" onChange="openNewWindow(this)">
+      <option value = "" selected></option>
+      <option value = "./kadai3-5-1.html">ブックマーク集</option>
+      <option value = "./kadai3-5-2.html">2019年の残り時間</option>
+      <option value = "./kadai3-5-3.html">背景色自動変更</option>
+      <option value = "./kadai3-5-4.html">自作</option>
+  </select>
+</body>
+
+</html>

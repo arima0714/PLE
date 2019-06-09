@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <script language="JavaScript">
+            function mdown(button_name){
+                document['form'][button_name].value = "thank you";
+            }
+            function mup(button_name){
+                document['form'][button_name].value = "press again";
+            }
+        </script>
+    </head>
+    <body>
+        <form name="form">
+            <input type="button" name="bt1" onmousedown='mdown("bt1")' onmouseup='mup("bt1")' value="press here">
+            <input type="button" name="bt2" onclick="mdown('bt2')" ondblclick='mup("bt2")' value="click here">
+        </form>
+    </body>
+</html>
