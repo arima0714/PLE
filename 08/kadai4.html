@@ -1,17 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
-<!--
-    
--->
-
 <head>
   <meta charset="utf-8">
   <title>課題4</title>
   <script>
     // 残り秒数
     var leftSec;
-    // スイッチ1～5
-
     // 正解クリック数
     var corrected = 0;
     // 残りチャレンジ回数
@@ -21,6 +15,7 @@
     // ゲーム中にSetIntervalの返り値を保存する変数
     var gaming;
     // 初期化関数
+    // スイッチにランダムな数字を割り振り、点数・正解クリック数・残り回数を初期値にする
     function init() {
       setRandom();
       charenge = 20;
@@ -29,7 +24,7 @@
       point = 0;
       gaming = setInterval('perOneSec()', 1000);
     }
-    // ボタンに乱数を設定する関数
+    // ボタンにランダムな値を設定する関数
     function setRandom() {
       for (var i = 0; i < 5; i++) {
         document.g_switch.elements[i].disabled = false;
@@ -48,13 +43,21 @@
         gameOver();
       }
     }
+    // クリックされたボタンが最大値化を判定する関数
     function judge(btn) {
+      // 変数にボタンの値を代入
       var selectedNum = btn.value;
+      // ボタンを無効化
       btn.disabled = true;
+      // すべてのボタンの値を格納する配列
       var numbers = [];
+      // ボタンの値をnubers配列に格納
       for (var i = 0; i < 5; i++) {
         numbers.push(document.g_switch.elements[i].value);
       }
+      // numbers配列の最大値とクリックされたボタンの値が同じかチェックする
+      // 同じ場合はクリックされたボタンの値を点数から加算
+      // 異なる場合はクリックされたボタンの値を点数から減算
       if (Math.max.apply(null, numbers) == selectedNum) {
         point = parseInt(point) + parseInt(selectedNum);
         corrected = corrected + 1;
@@ -64,17 +67,23 @@
       }
       document.forms.point_form.point_text.value = point;
     }
+    // ゲーム終了時に実行する関数
     function gameOver() {
+      // 毎秒実行されていた関数を実行しなくする
       clearInterval(gaming);
+      // フォームを初期状態にする
       document.forms.start_form.start_button.value = "START";
       document.forms.point_form.point_text.value = "0";
+      // プログレスバーを初期化
       setProgressBar(0);
+      // ボタンに表示されている値を初期化
       for (var i = 0; i < 5; i++) {
         document.g_switch.elements[i].disabled = false;
         document.g_switch.elements[i].value = "SW" + i;
       }
       window.alert('最大数をクリックした回数： ' + corrected + 'ポイント： ' + point);
     }
+    // 引数に渡された分だけプログレスバーに表示するプログラム
     function setProgressBar(value){
       document.getElementById("progress00").value = value;
     }

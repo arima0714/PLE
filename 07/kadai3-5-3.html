@@ -7,17 +7,25 @@
 <script>
     //文字色を配列に保存
     var colors = ['red', 'blue','yellow','black','green'];
+    // 現在の背景色を格納する変数color
     var color;
+    // 次の背景色を格納する変数color_next
     var color_next;
-    //idが「txt」に当てはまるものの文字色をランダムにcolors配列に保存されている色に変更する関数
+    //背景色をランダムに変更する関数
     function changeColor(){
-        color_next = colors[Math.floor(Math.random() * colors.length)];
-        if(color_next != color){
-            color = color_next;
+        // color_nextにランダムで色を代入
+        // ランダムに選んだ色と現在の色が被っていない場合のみループを抜ける
+        while(true){
+            color_next = colors[Math.floor(Math.random() * colors.length)];
+            if(color_next != color){
+                color = color_next;
+                break;
+            }
         }
+        // 背景の変更
         document.getElementById('all').style.backgroundColor = color;
     }
-    //五秒ごとにchangeColor()を実行
+    //3秒ごとにchangeColor()を実行
     setInterval('changeColor()',3000);
 </script>
 </head>

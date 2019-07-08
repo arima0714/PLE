@@ -5,19 +5,24 @@
 <html>
     <head>
         <script type="text/javascript">
+            // 選択されたラジオボタンに合わせて文字色を変更する関数
             function changeColor(){
+                // name="color"なラジオボタンをelementsに代入
                 var elements = document.getElementsByName("color");
+                // elementsに代入されたラジオボタンを全検索し選択された色を変数aに代入
                 for(var a = "", i = elements.length; i--;){
                     if(elements[i].checked){
                         var a = elements[i].value;
                         break;
                     }
                 }
+                // 変数aの色を文字色へ適応
                 document.getElementById("str").style.color = a;   
             }
         </script>
     </head>
     <body>
+        <!-- 色のラジオボタンの列挙 -->
         <form name = "radios">
             <input type = "radio" name="color" value="red">赤<br>
             <input type = "radio" name="color" value="blue">青<br>
@@ -26,6 +31,7 @@
             <input type = "radio" name="color" value="green">緑<br>
             <input type = "button" value = "change strings color" onclick='changeColor()'>
         </form>
+        <!-- 色を変更する文字列の表示 -->
         <div id="str">■ ■ ■ ■ ■</div>
     </body>
 </html>

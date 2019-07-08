@@ -9,7 +9,9 @@
                 }
                 document.tstform.english.focus();
             }
+            //与えられた引数の点数に対して結果を返す関数
             function retResult(point){
+                //引数を整数化して変数intPointに代入
                 var intPoint = (parseInt(point));
                 if(point < 60){
                     return "不可（59点以下）";
@@ -24,9 +26,13 @@
                 }
             }
             function cave(){
+                //平均値の計算
                 document.tstform.tresult.value = (parseInt(document.tstform.english.value) + parseInt(document.tstform.mathmatics.value))/2;
+                //英語の成績の出力
                 document.tstform.eng_result.value = retResult(document.tstform.english.value);
+                //数学の成績の出力
                 document.tstform.math_result.value = retResult(document.tstform.mathmatics.value);
+                //平均値に合わせてコメントの出力
                 if(document.tstform.tresult.value < 60){
                     document.tstform.tcmnt.value = "頑張らないと単位が取れないですよ";
                 }else if(document.tstform.tresult.value < 80){

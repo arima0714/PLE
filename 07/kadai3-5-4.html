@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<!--
+    おみくじげーむ
+	-->
+
+<head>
+  <meta charset="utf-8">
+  <title>おみくじげーむ</title>
+  <script>
+      // ランダムに凶・吉・大吉をアラート出力する関数
+      function drowKuji(){
+          // 変数randNumに0から10の数字を代入
+          var randNum = Math.floor(Math.random() * 10);
+          // 3未満なら「凶」、9未満なら「吉」、それ以外は「大吉」を出力
+          if(randNum < 3){
+              window.alert("凶");
+          }else if(randNum < 9){
+              window.alert("吉")
+          }else{
+              window.alert("大吉");
+          }
+      }
+  </script>
+</head>
+
+<body>
+  <h1>おみくじげーむ</h1>
+  <div id="txt">this is text</div>
+  <input type="button" onclick="drowKuji()" value="おみくじを引く"><br>
+</body>
+  <button onclick="window.close()">閉じる</button>
+
+</html>

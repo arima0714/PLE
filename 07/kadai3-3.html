@@ -1,22 +1,28 @@
 <html>
     <head>
         <script type="text/javascript">
+        // imgs配列に画像1から3までのパスを保存
             var imgs = ["./imgGreece1.jpg","./imgGreece2.jpg","./imgGreece3.jpg"]
+            // セレクト欄で選択されているものに画像を変更する関数
             function ChangeImg(){
                 var selected = document.bkmkmenu.bkmks.selectedIndex;
                 document["img"].src = imgs[selected];
             }
+            // 0.1秒ごとに、ChangeImg()を実行することでリアルタイム感を演出
             setInterval('ChangeImg()',100);
         </script>
     </head>
     <body>
+        <!-- セレクト欄の表示 -->
         <form name = "bkmkmenu">
             <select name = "bkmks" size="3">
+                <!-- デフォルトでは画像1が選択されるように設定 -->
                 <option value = "1" selected>画像1</option>
                 <option value = "2">画像2</option>
                 <option value = "3">画像3</option>
             </select>
         </form>
+        <!-- ここに画像が表示されるようにするが最初は何も表示しない -->
         <img name="img" src="">
     </body>
 </html>

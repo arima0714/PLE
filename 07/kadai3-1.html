@@ -2,8 +2,10 @@
     <head>
         <script type="text/javascript">
             function IdPassword(){
+                //変数id, passwordにそれぞれの入力された値を保持
                 var id = document['form']['id'].value;
                 var password = document['form']['password'].value;
+                //idとpasswordが一致した場合は画面を遷移。一方異なっている場合はアラートを出す
                 if(id == password){
                     window.open("https://www.ied.inf.uec.ac.jp/support/projects/ied-support/wiki");
                 }else{
@@ -14,6 +16,7 @@
     </head>
     <body>
         <form name="form">
+            <!-- 入力枠をID・passwordように二つ設置 -->
             Input ID: <input type="text" name="id" size=10>
             Input password: <input type="password" name="password" size="10" onchange="IdPassword()">
         </form>
