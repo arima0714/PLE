@@ -11,7 +11,7 @@
 (define map-tree
   (lambda (fn tree)
     (cond ((null? tree) '())
-          ((pair? tree) [])
+          ((pair? tree) (cons (map-tree fn (car tree)) (map-tree fn (cdr tree))))
           ;木が与えられた場合の処理。
           ;map-treeは元の木と同じ形状の木が答えとなる。
           ;したがって空欄部分の定義は、ドット対のcar部とcdr部の両方に再帰的に適用する。
