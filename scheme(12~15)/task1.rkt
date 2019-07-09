@@ -23,7 +23,7 @@
           (else (fn tree))
           )))
 
-;課題1-1テスト
+"-----課題1-1テスト-----"
 (map-tree even? TREE)
 ;(#f (#t (#f #t)) #t (#f #t #f))
 (map-tree (lambda (x) (* x x)) TREE)
@@ -48,7 +48,7 @@
           (else (fn tree))
           )))
 
-;課題1-2テスト
+"-----課題1-2テスト-----"
 (map-tree2 even? TREE)
 ;(#f (#t (#f #t)) #t (#f #t #f))
 (map-tree2 (lambda (x) (* x x)) TREE)
