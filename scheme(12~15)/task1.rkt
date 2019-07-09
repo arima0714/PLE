@@ -37,7 +37,7 @@
 (define map-tree2
   (lambda (fn tree)
     (cond ((null? tree) '())
-          ((pair? tree) [])
+          ((pair? tree) (map (lambda (t) (map-tree2 fn t)) tree))
           ;map-treeでは引数が2こ必要なのでmapを使用することができない
           ;map-treeで受け取っていた引数fnは全く変更されていない。
           ;したがって計算対象の木のみを一つの引数として受け取るようにして
