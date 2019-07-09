@@ -20,4 +20,7 @@
           )))
 
 (map-tree even? TREE)
-(map-tree (lambda (x) (* x x) TREE))
+;(#f (#t (#f #t)) #t (#f #t #f))
+(map-tree (lambda (x) (* x x)) TREE)
+;(1 (4 (9 16)) 36 (49 64 81))
+
