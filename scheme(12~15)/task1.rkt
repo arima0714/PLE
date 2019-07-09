@@ -14,3 +14,6 @@
           ((pair? tree) [])
           (else (fn tree))
           )))
+
+(map-tree even? TREE)
+(map-tree (lambda (x) (* x x) TREE))
