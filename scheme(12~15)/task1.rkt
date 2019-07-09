@@ -1,4 +1,5 @@
 (define TREE '(1 (2 (3 4)) 6 (7 8 9)) )
+(define TREE00 '(1 2 3 4 5))
 
 (define mymap
   (lambda (fn ls)
@@ -24,3 +25,7 @@
 (map-tree (lambda (x) (* x x)) TREE)
 ;(1 (4 (9 16)) 36 (49 64 81))
 
+(map-tree even? TREE00)
+;(#f #t #f #t #f)
+(map-tree (lambda (x) (* x x)) TREE00)
+;(1 4 9 16 25)
