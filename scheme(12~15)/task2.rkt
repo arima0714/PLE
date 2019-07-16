@@ -13,7 +13,7 @@ kakeizu
           );1になった時 -> この時は出力される
           ((null? tree)
           )
-          (else
+          (else (map (lambda (t) (get-depth fn t)) tree)
           );1でない時 -> この時は息子をたどるようにする
     )
   )
