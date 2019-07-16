@@ -24,6 +24,11 @@ kakeizu
   )
 )
 
+(define myappend
+  (lambda (ls)
+           (apply append ls)
+           ))
+
 "get-depth kakeizu 1 begin"
 (get-depth kakeizu 1)
 "get-depth kakeizu 1 end"
@@ -35,3 +40,7 @@ kakeizu
 "get-depth kakeizu 6 begin"
 (get-depth kakeizu 6)
 "get-depth kakeizu 6 end"
+
+"get-depth2 kakeizu 3 begin"
+(myappend (map append (get-depth kakeizu 3)))
+"get-depth2 kakeizu 3 end"
