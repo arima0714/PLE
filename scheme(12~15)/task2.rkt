@@ -6,6 +6,11 @@
 kakeizu
 "入力 end"
 
+"cdr test begin"
+(cdr kakeizu)
+"cdr test end"
+
+
 (define get-depth
   (lambda(tree num)
     (cond ((= num 1)
@@ -13,7 +18,7 @@ kakeizu
           );1になった時 -> この時は出力される
           ((null? tree)
           )
-          (else (map (lambda (t) (get-depth fn t)) tree)
+          (else (map (lambda (t) (get-depth t (- num 1))) (cdr tree))
           );1でない時 -> この時は息子をたどるようにする
     )
   )
@@ -23,6 +28,10 @@ kakeizu
 (get-depth kakeizu 1)
 "get-depth kakeizu 1 end"
 
-"get-depth kakeizu 2 begin"
-(get-depth kakeizu 2)
-"get-depth kakeizu 2 end"
+"get-depth kakeizu 3 begin"
+(get-depth kakeizu 3)
+"get-depth kakeizu 3 end"
+
+"get-depth kakeizu 6 begin"
+(get-depth kakeizu 6)
+"get-depth kakeizu 6 end"
