@@ -74,7 +74,33 @@
 
 "Exercise3-3"
 
-
+(define diff
+  (lambda (func)
+    (cond
+         ((number? func)
+          0
+         )
+         ((equal? 'x func)
+          1
+         )
+         ((equal? '+ func)
+          '+
+         )
+         ((equal? '- func)
+          '-
+         )
+         ((equal? '* (car func))
+          `(+ (* ,(cadr func) ,(diff (caddr func))) (* ,(diff (cadr func)) ,(caddr func)))
+         )
+         ((equal? '** (car func))
+          `(* ,(caddr func) (* ,(diff (cadr func)) (** ,(cadr func) ,(- (caddr func) 1))))
+         )
+         (else
+          (map diff func)
+         )
+    )
+  )
+)
 
 #(diff2 'x 'x)
 (diff2 'x 'x)
