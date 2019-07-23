@@ -93,13 +93,13 @@
           0
          )
          ((equal? '* (car func))
-          `(+ (* ,(cadr func) ,(diff (caddr func))) (* ,(diff (cadr func)) ,(caddr func)))
+          `(+ (* ,(cadr func) ,(diff2 (caddr func) key)) (* ,(diff2 (cadr func) key) ,(caddr func)))
          )
          ((equal? '** (car func))
-          `(* ,(caddr func) (* ,(diff (cadr func)) (** ,(cadr func) ,(- (caddr func) 1))))
+          `(* ,(caddr func) (* ,(diff2 (cadr func) key) (** ,(cadr func) ,(- (caddr func) 1))))
          )
          (else
-          (map diff func)
+          (map (lambda (_func) diff2 _func key) func)
          )
     )
   )
@@ -109,3 +109,5 @@
 (diff2 'x 'x)
 #(diff2 'y 'x)
 (diff2 'y 'x)
+#(diff2 '(+ y z) 'z)
+(diff2 '(+ y z) 'z)
