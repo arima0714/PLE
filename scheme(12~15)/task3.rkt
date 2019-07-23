@@ -71,3 +71,12 @@
 (diff '(+ (** x 3) (* -2 (** x 2)) 9))
 #(tangent '(+ (** x 3) (* -2 (** x 2)) 9) 2)
 (tangent '(+ (** x 3) (* -2 (** x 2)) 9) 2)
+
+"Exercise3-3"
+
+
+
+#(diff2 'x 'x)
+(diff2 'x 'x)
+#(diff2 'y 'x)
+(diff2 'y 'x)
