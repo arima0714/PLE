@@ -74,13 +74,13 @@
 
 "Exercise3-3"
 
-(define diff
-  (lambda (func)
+(define diff2
+  (lambda (func key)
     (cond
          ((number? func)
           0
          )
-         ((equal? 'x func)
+         ((equal? key func)
           1
          )
          ((equal? '+ func)
@@ -88,6 +88,9 @@
          )
          ((equal? '- func)
           '-
+         )
+         ((symbol? func)
+          0
          )
          ((equal? '* (car func))
           `(+ (* ,(cadr func) ,(diff (caddr func))) (* ,(diff (cadr func)) ,(caddr func)))
