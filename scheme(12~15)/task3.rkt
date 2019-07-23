@@ -60,12 +60,13 @@
 
 (define tangent
   (lambda (func Xkey)
-    #f
+   `(+
+      (* ,((eval `(lambda(x) ,(diff func)) (interaction-environment)) Xkey) x)
+      ,(- ((eval `(lambda(x) ,func) (interaction-environment)) Xkey) (* Xkey ((eval `(lambda(x) ,(diff func)) (interaction-environment)) Xkey)))
+     )
   )
 )
 
-#((eval `(lambda (x) ,fdx) (interaction-environment)) 5)
-((eval `(lambda (x) ,fdx) (interaction-environment)) 5)
 #(tangent '(+ (** x 3) (* -2 (** x 2)) 9) 2)
 (diff '(+ (** x 3) (* -2 (** x 2)) 9))
 #(tangent '(+ (** x 3) (* -2 (** x 2)) 9) 2)
