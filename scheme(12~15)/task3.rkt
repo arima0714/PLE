@@ -54,8 +54,19 @@
 
 (define ** expt)
 
+(define fx '(+ (** x 2) (* 4 x) 3) )
+(define fdx (diff fx))
+
+
 (define tangent
-  (lambda (func)
-    
+  (lambda (func Xkey)
+    #f
   )
 )
+
+#((eval `(lambda (x) ,fdx) (interaction-environment)) 5)
+((eval `(lambda (x) ,fdx) (interaction-environment)) 5)
+#(tangent '(+ (** x 3) (* -2 (** x 2)) 9) 2)
+(diff '(+ (** x 3) (* -2 (** x 2)) 9))
+#(tangent '(+ (** x 3) (* -2 (** x 2)) 9) 2)
+(tangent '(+ (** x 3) (* -2 (** x 2)) 9) 2)
