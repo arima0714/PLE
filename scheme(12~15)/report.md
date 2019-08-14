@@ -66,20 +66,63 @@
 
 ### 設計上の留意点
 
+この課題については、私は今までのプログラミング系課題において仮定の部分を見過ごして不要な記述を大量生産してしまったという経験があるので、提示された仮定を把握して不要な記述を防ぐとともに、仮定を把握した上でのアルゴリズムを構築するよいうことを留意しながらコードの作成を行った。
+
 ### 実行例
 
-実行時の入力例は下記である。
+課題2-1の入力例は下記である。
 
 ```
-
+"get-depth 実行結果 begin"
+"get-depth kakeizu 1 <- executed"
+(get-depth kakeizu 1)
+"get-depth kakeizu 3 <- executed"
+(get-depth kakeizu 3)
+"get-depth kakeizu 6 <- executed"
+(get-depth kakeizu 6)
+"get-depth 実行結果 end"
 ```
 
-実行結果は下記のようになった
+課題2-1の実行結果は下記のようになった
+
+```
+"get-depth 実行結果 begin"
+"get-depth kakeizu 1 <- executed"
+(義直 秀忠 頼宣 頼房)
+"get-depth kakeizu 3 <- executed"
+(綱誠 綱吉 綱重 家綱 綱教 頼職 吉宗 綱条 頼候)
+"get-depth kakeizu 6 <- executed"
+(家斎 斎敦 斎匡)
+"get-depth 実行結果 end"
+```
+
+課題2-2の入力例は下記である。
+
+```
+"get-cousin 実行結果 begin"
+"(get-cousin kakeizu '秀忠 <- executed"
+(get-cousin kakeizu '秀忠)
+"(get-cousin kakeizu '吉宗 <- executed"
+(get-cousin kakeizu '吉宗)
+"(get-cousin kakeizu '家継 <- executed"
+(get-cousin kakeizu '家継)
+"get-cousin 実行結果 end"
+```
+
+課題2-2の実行結果は下記のようになった
 
 
 ```
-
+"get-cousin 実行結果 begin"
+"(get-cousin kakeizu '秀忠 <- executed"
+(義直 秀忠 頼宣 頼房)
+"(get-cousin kakeizu '吉宗 <- executed"
+(綱誠 綱吉 綱重 家綱 綱教 頼職 吉宗 綱条 頼候)
+"(get-cousin kakeizu '家継 <- executed"
+(家継 治済 家治 重好 治察 定国 定信)
+"get-cousin 実行結果 end"
 ```
+
 
 ### 考察
 
