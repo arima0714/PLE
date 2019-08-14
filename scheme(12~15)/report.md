@@ -88,8 +88,12 @@
 "get-depth 実行結果 begin"
 "get-depth kakeizu 1 <- executed"
 (get-depth kakeizu 1)
+"get-depth kakeizu 2 <- executed"
+(get-depth kakeizu 2)
 "get-depth kakeizu 3 <- executed"
 (get-depth kakeizu 3)
+"get-depth kakeizu 4 <- executed"
+(get-depth kakeizu 4)
 "get-depth kakeizu 6 <- executed"
 (get-depth kakeizu 6)
 "get-depth 実行結果 end"
@@ -101,8 +105,12 @@
 "get-depth 実行結果 begin"
 "get-depth kakeizu 1 <- executed"
 (義直 秀忠 頼宣 頼房)
+"get-depth kakeizu 2 <- executed"
+(光友 家光 光貞 頼重 光圀)
 "get-depth kakeizu 3 <- executed"
 (綱誠 綱吉 綱重 家綱 綱教 頼職 吉宗 綱条 頼候)
+"get-depth kakeizu 4 <- executed"
+(家宣 宗尹 家重 宗武)
 "get-depth kakeizu 6 <- executed"
 (家斎 斎敦 斎匡)
 "get-depth 実行結果 end"
@@ -137,6 +145,12 @@
 
 
 ### 考察
+
+#### 課題2-1
+
+
+
+#### 課題2-2
 
 ## 課題3
 
