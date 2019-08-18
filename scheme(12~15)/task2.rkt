@@ -18,10 +18,16 @@
 "get-depth 実行結果 begin"
 "get-depth kakeizu 1 <- executed"
 (get-depth kakeizu 1)
+"get-depth kakeizu 2 <- executed"
+(get-depth kakeizu 2)
 "get-depth kakeizu 3 <- executed"
 (get-depth kakeizu 3)
+"get-depth kakeizu 4 <- executed"
+(get-depth kakeizu 4)
 "get-depth kakeizu 6 <- executed"
 (get-depth kakeizu 6)
+"get-depth kakeizu 11 <- executed"
+(get-depth kakeizu 11)
 "get-depth 実行結果 end"
 
 (define equal_list
@@ -70,4 +76,8 @@
 (get-cousin kakeizu '吉宗)
 "(get-cousin kakeizu '家継 <- executed"
 (get-cousin kakeizu '家継)
+"(get-cousin kakeizu '家達 <- executed"
+(get-cousin kakeizu '家達)
+"(get-cousin kakeizu '家 <- executed"
+(get-cousin kakeizu '家)
 "get-cousin 実行結果 end"
